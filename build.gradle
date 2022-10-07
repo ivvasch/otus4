@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'com.github.johnrengelman.shadow' version '7.1.2' apply false
+}
+
+allprojects{
+    group 'ru.otus4'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    apply plugin: 'io.spring.dependency-management'
+    dependencyManagement{
+        dependencies {
+            dependency group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.7.4'
+            dependency group: 'com.google.guava', name: 'guava', version: '31.1-jre'
+            dependency group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
+            dependency group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.7.2'
+        }
+
+    }
+}
+
+
+test {
+    useJUnitPlatform()
+}
