@@ -1,0 +1,22 @@
+[2022-11-01T09:40:00.164+0300][0.005s][info][gc] Using G1
+[2022-11-01T09:40:00.164+0300][0.005s][debug][gc] ConcGCThreads: 3 offset 29
+[2022-11-01T09:40:00.164+0300][0.005s][debug][gc] ParallelGCThreads: 13
+[2022-11-01T09:40:00.164+0300][0.005s][debug][gc] Initialize mark stack with 4096 chunks, maximum 524288
+[2022-11-01T09:40:00.315+0300][0.156s][info ][gc] GC(0) Pause Young (Normal) (G1 Evacuation Pause) 101M->98M(1024M) 28.764ms
+[2022-11-01T09:40:00.373+0300][0.213s][info ][gc] GC(1) Pause Young (Normal) (G1 Evacuation Pause) 166M->170M(1024M) 20.611ms
+[2022-11-01T09:40:00.441+0300][0.281s][info ][gc] GC(2) Pause Young (Normal) (G1 Evacuation Pause) 250M->246M(1024M) 18.010ms
+[2022-11-01T09:40:00.484+0300][0.324s][info ][gc] GC(3) Pause Young (Normal) (G1 Evacuation Pause) 290M->293M(1024M) 16.185ms
+[2022-11-01T09:40:00.513+0300][0.353s][info ][gc] GC(4) Pause Young (Normal) (G1 Evacuation Pause) 337M->312M(1024M) 6.716ms
+[2022-11-01T09:40:00.548+0300][0.387s][info ][gc] GC(5) Pause Young (Normal) (G1 Evacuation Pause) 356M->357M(1024M) 15.433ms
+[2022-11-01T09:40:00.577+0300][0.417s][info ][gc] GC(6) Pause Young (Normal) (G1 Evacuation Pause) 401M->364M(1024M) 4.137ms
+[2022-11-01T09:40:00.633+0300][0.473s][info ][gc] GC(7) Pause Young (Normal) (G1 Evacuation Pause) 429M->429M(1024M) 23.113ms
+[2022-11-01T09:40:00.684+0300][0.524s][info ][gc] GC(8) Pause Young (Normal) (G1 Evacuation Pause) 503M->471M(1024M) 14.861ms
+[2022-11-01T09:40:00.908+0300][0.748s][info ][gc] GC(9) Pause Young (Normal) (G1 Evacuation Pause) 782M->519M(1024M) 18.002ms
+[2022-11-01T09:40:01.038+0300][0.878s][info ][gc] GC(10) Pause Young (Concurrent Start) (G1 Evacuation Pause) 783M->499M(1024M) 6.266ms
+[2022-11-01T09:40:01.038+0300][0.878s][info ][gc] GC(11) Concurrent Mark Cycle
+[2022-11-01T09:40:01.048+0300][0.888s][debug][gc] GC(11) Reclaimed 428 empty regions
+[2022-11-01T09:40:01.048+0300][0.888s][info ][gc] GC(11) Pause Remark 519M->92M(1024M) 0.783ms
+[2022-11-01T09:40:01.057+0300][0.897s][info ][gc] GC(11) Pause Cleanup 111M->111M(1024M) 0.102ms
+[2022-11-01T09:40:01.060+0300][0.899s][info ][gc] GC(11) Concurrent Mark Cycle 21.435ms
+[2022-11-01T09:40:01.181+0300][1.021s][info ][gc] GC(12) Pause Young (Prepare Mixed) (G1 Evacuation Pause) 374M->68M(1024M) 5.675ms
+[2022-11-01T09:40:01.209+0300][1.049s][info ][gc] GC(13) Pause Young (Mixed) (G1 Evacuation Pause) 101M->98M(1024M) 14.535ms
