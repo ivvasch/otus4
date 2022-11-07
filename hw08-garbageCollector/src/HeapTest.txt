@@ -1,0 +1,25 @@
+Heap		ms		s
+до оптимизации		
+Xms256m		9334	9
+Xmx256m		
+Xms512m		6351	6
+Xmx512m		
+Xms1024m	6271	6
+Xmx1024m		
+Xms1536m	5226	5
+Xmx1536m		
+Xms2g		5379	5
+Xmx2g		
+
+Heap		ms		s
+после оптимизации		
+Xms256m		1664	1
+Xmx256m		
+Xms512m		1148	1
+Xmx512m		
+Xms1024m	1092	1    <------ оптимальный размер хипа
+Xmx1024m		
+Xms1536m	1519	1
+Xmx1536m		
+Xms2g		1655	1
+Xmx2g		
