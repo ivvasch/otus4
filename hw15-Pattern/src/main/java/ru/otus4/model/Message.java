@@ -1,6 +1,6 @@
 package ru.otus4.model;
 
-public class Message {
+public class Message implements Cloneable {
     private final long id;
     private final String field1;
     private final String field2;
@@ -99,6 +99,12 @@ public class Message {
         Message message = (Message) o;
 
         return id == message.id;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Message cloneMessage = (Message) super.clone();
+        return new Builder(cloneMessage.getId()).build();
     }
 
     @Override

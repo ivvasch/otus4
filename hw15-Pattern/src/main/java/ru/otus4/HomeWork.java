@@ -6,7 +6,7 @@ import ru.otus4.listener.homework.HistoryListener;
 import ru.otus4.model.Message;
 import ru.otus4.model.ObjectForMessage;
 import ru.otus4.processor.ProcessorChangeField;
-import ru.otus4.processor.ProcessorException;
+import ru.otus4.processor.ProcessorConcatFields;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class HomeWork {
            по аналогии с Demo.class
            из элеменов "to do" создать new ComplexProcessor и обработать сообщение
          */
-        var processor = List.of(new ProcessorChangeField(), new ProcessorException());
+        var processor = List.of(new ProcessorChangeField(), new ProcessorConcatFields());
         var complexProcessor = new ComplexProcessor(processor, ex -> {
         });
         var listener = new HistoryListener();

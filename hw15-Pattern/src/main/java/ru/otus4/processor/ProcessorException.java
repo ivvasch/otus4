@@ -1,28 +1,20 @@
 package ru.otus4.processor;
 
 import ru.otus4.model.Message;
-
-import java.util.Date;
+import ru.otus4.util.DateTimeProvider;
 
 public class ProcessorException implements Processor {
+    private final DateTimeProvider provider;
 
-    private long state;
-
-    public long getState() {
-        return state;
-    }
-
-    public void setState(long state) {
-        this.state = state;
+    public ProcessorException(DateTimeProvider provider) {
+        this.provider = provider;
     }
 
     @Override
     public Message process(Message message) {
-            long time = new Date().getTime() / 1000;
+            long time = provider.getTimeProcessor().getSecond();
         try {
             if (time % 2 == 0) {
-                setState(time);
-                message.toBuilder().field1(String.valueOf(time)).build();
                 throw new RuntimeException("Test2 exception");
             }
         } catch (RuntimeException exception) {
