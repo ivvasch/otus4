@@ -5,5 +5,5 @@ include 'hw06-annotation'
 include 'hw08-garbageCollector'
 include 'hw10-Log'
 include 'hw12-ATM'
+include 'hw15-Pattern'
 include 'hw-16-JSON'
-
