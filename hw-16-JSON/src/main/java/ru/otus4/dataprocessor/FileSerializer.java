@@ -22,7 +22,7 @@ public class FileSerializer implements Serializer {
             String outFile = getFileName();
             mapper.writeValue(new File(outFile), data);
         } catch (IOException e) {
-            throw new FileProcessorException(e);
+            throw new FileProcessException(e);
         }
 
     }
