@@ -14,7 +14,7 @@ public class DbExecutorImpl implements DbExecutor {
 
     @Override
     public long executeStatement(Connection connection, String sql, List<Object> params) {
-        try (var pst = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        try (var pst = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) { //-->
             for (var idx = 0; idx < params.size(); idx++) {
                 pst.setObject(idx + 1, params.get(idx));
             }

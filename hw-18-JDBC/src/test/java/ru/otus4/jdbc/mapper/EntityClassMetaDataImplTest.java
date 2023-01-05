@@ -11,7 +11,7 @@ class EntityClassMetaDataImplTest  {
     void getName() {
         String name = entityClassMetaData.getName();
         System.out.println(name);
-        Assertions.assertEquals("name", name);
+        Assertions.assertEquals("Client", name);
     }
 
     @Test

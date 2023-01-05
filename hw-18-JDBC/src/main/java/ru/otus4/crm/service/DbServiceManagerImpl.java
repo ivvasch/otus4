@@ -23,7 +23,7 @@ public class DbServiceManagerImpl implements DBServiceManager {
     @Override
     public Manager saveManager(Manager manager) {
         return transactionRunner.doInTransaction(connection -> {
-            if (manager.getNo() == null) {
+            if (manager.getNo() == null || getManager(manager.getNo()).isEmpty()) {
                 var managerNo = managerDataTemplate.insert(connection, manager);
                 var createdManager = new Manager(managerNo, manager.getLabel(), manager.getParam1());
                 log.info("created manager: {}", createdManager);

@@ -11,32 +11,35 @@ import java.util.stream.Collectors;
 
 public class EntityClassMetaDataImpl<T> implements EntityClassMetaData<T> {
     private final T clazz;
+    private final Constructor<?>[] declaredConstructors;
+    private final Field[] declaredFields;
 
     public EntityClassMetaDataImpl(T clazz) {
         this.clazz = clazz;
+        this.declaredConstructors = clazz.getClass().getDeclaredConstructors();
+        this.declaredFields =  clazz.getClass().getDeclaredFields();
     }
 
     @Override
     public String getName() {
-        Optional<Field> name = getAllFields().stream().filter(f -> f.getName().equals("name")).findFirst();
-        return name.map(Field::getName).orElse(null);
+        return clazz.getClass().getSimpleName();
     }
 
     @Override
     public Constructor<T> getConstructor() {
-        Constructor<?>[] declaredConstructors = clazz.getClass().getDeclaredConstructors();
         return (Constructor<T>) declaredConstructors[0];
+
     }
 
     @Override
     public Field getIdField() {
         Optional<Field> idField = getAllFields().stream().filter(f -> f.isAnnotationPresent(Id.class)).findFirst();
         return idField.orElse(null);
+
     }
 
     @Override
     public List<Field> getAllFields() {
-        Field[] declaredFields =  clazz.getClass().getDeclaredFields();
         return Arrays.stream(declaredFields).collect(Collectors.toList());
     }
 
