@@ -27,7 +27,7 @@ public class FileSerializer implements Serializer {
 
     }
 
-    public String getFileName() {
+    private String getFileName() {
         return fileName;
     }
 }
