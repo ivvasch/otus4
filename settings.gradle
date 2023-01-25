@@ -7,3 +7,5 @@ include 'hw10-Log'
 include 'hw12-ATM'
 include 'hw15-Pattern'
 include 'hw-16-JSON'
+include 'hw21-JPQL'
+
