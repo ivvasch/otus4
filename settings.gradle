@@ -11,3 +11,5 @@ include 'hw-18-JDBC'
 include 'hw21-JPQL'
 include 'hw22-Cache'
 include 'hw31-Executors'
+include 'hw24-webServer'
+
