@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Пользователи</title>
+    <script>
+        function getClientById() {
+            const clientIdTextBox = document.getElementById('clientIdTextBox');
+            const clientDataContainer = document.getElementById('clientDataContainer');
+            const id = clientIdTextBox.value;
+            //fetch('api/user?id=' + id)
+            fetch('api/user/' + id)
+                .then(response => response.json())
+                .then(client => clientDataContainer.innerHTML = JSON.stringify(client));
+        }
+    </script>
+</head>
+
+<body>
+<h4>Получить клиента по id</h4>
+<input type="text" id = "clientIdTextBox" value="3" placeholder="Введите id пользователя">
+<button onclick="getClientById()">Получить</button>
+<pre id = "clientDataContainer"></pre>
+
+<h4>Случайный пользователь</h4>
+<table style="width: 400px">
+    <thead>
+        <tr>
+            <td style="width: 50px">Id</td>
+            <td style="width: 150px">Имя</td>
+            <td style="width: 100px">Пароль</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>${randomClient.id}</td>
+            <td>${randomClient.name}</td>
+            <td>${randomClient.password}</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
