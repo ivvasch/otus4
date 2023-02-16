@@ -1,4 +1,4 @@
-package ru.otus4.crm.model;
+package ru.otus4.model;
 
 
 import jakarta.persistence.*;

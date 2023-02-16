@@ -1,6 +1,6 @@
-package ru.otus4.crm.service;
+package ru.otus4.services;
 
-import ru.otus4.crm.model.Client;
+import ru.otus4.model.Client;
 
 import java.util.List;
 import java.util.Optional;

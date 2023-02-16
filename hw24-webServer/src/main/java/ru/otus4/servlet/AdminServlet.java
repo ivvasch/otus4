@@ -5,10 +5,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.eclipse.jetty.util.StringUtil;
-import ru.otus4.crm.model.Address;
-import ru.otus4.crm.model.Client;
-import ru.otus4.crm.model.Phone;
-import ru.otus4.crm.service.DBServiceClient;
+import ru.otus4.model.Address;
+import ru.otus4.model.Client;
+import ru.otus4.model.Phone;
+import ru.otus4.services.DBServiceClient;
 import ru.otus4.services.TemplateProcessor;
 
 import java.io.IOException;

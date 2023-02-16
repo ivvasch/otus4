@@ -4,10 +4,10 @@ import org.eclipse.jetty.security.AbstractLoginService;
 import org.eclipse.jetty.security.RolePrincipal;
 import org.eclipse.jetty.security.UserPrincipal;
 import org.eclipse.jetty.util.security.Password;
-import ru.otus4.crm.model.Address;
-import ru.otus4.crm.model.Client;
-import ru.otus4.crm.service.DBServiceClient;
-import ru.otus4.crm.service.DbServiceClientImpl;
+import ru.otus4.model.Address;
+import ru.otus4.model.Client;
+import ru.otus4.services.DBServiceClient;
+import ru.otus4.services.DbServiceClientImpl;
 
 import java.util.List;
 import java.util.Optional;

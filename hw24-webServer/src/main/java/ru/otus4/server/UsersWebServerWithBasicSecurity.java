@@ -9,7 +9,7 @@ import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.util.security.Constraint;
-import ru.otus4.crm.service.DBServiceClient;
+import ru.otus4.services.DBServiceClient;
 import ru.otus4.services.TemplateProcessor;
 
 import java.util.ArrayList;
@@ -32,6 +32,7 @@ public class UsersWebServerWithBasicSecurity extends UsersWebServerSimple {
         this.loginService = loginService;
     }
 
+    @Override
     protected Handler applySecurity(ServletContextHandler servletContextHandler, String... paths) {
         Constraint constraint = new Constraint();
         constraint.setName(CONSTRAINT_NAME);
