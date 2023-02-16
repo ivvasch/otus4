@@ -2,6 +2,9 @@ plugins {
     id 'java'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'com.github.johnrengelman.shadow' version '7.1.2' apply false
+    id "org.springframework.boot" version "3.0.1" apply false
+    id "com.google.cloud.tools.jib" version "3.2.1" apply false
+    id "fr.brouillard.oss.gradle.jgitver" version "0.10.0-rc03" apply false
 }
 
 allprojects{
@@ -15,15 +18,64 @@ allprojects{
     apply plugin: 'io.spring.dependency-management'
     dependencyManagement{
         dependencies {
-            dependency group: 'org.springframework.boot', name: 'spring-boot-starter', version: '2.7.4'
-            dependency group: 'com.google.guava', name: 'guava', version: '31.1-jre'
-            dependency group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
-            dependency group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.7.2'
+            imports {
+                mavenBom "org.springframework.boot:spring-boot-dependencies:3.0.1"
+                mavenBom "org.testcontainers:testcontainers-bom:1.17.3"
+                mavenBom "com.google.protobuf:protobuf-bom:3.21.1"
+            }
+
+            dependency "com.google.guava:guava:30.0-jre"
+            dependency "org.openjdk.jmh:jmh-core:1.36"
+            dependency "org.openjdk.jmh:jmh-generator-annprocess:1.36"
+            dependency "org.ow2.asm:asm-commons:9.4"
+            dependency("org.glassfish:jakarta.json:2.0.1")
+
+            dependency("org.projectlombok:lombok:1.18.24")
+            dependency("com.google.code.gson:gson:2.8.5")
+            dependency("com.datastax.oss:java-driver-core:4.15.0")
+
+            dependency("org.mongodb:mongodb-driver-core:4.9.0")
+            dependency("org.mongodb:mongodb-driver-sync:4.9.0")
+            dependency("org.mongodb:bson:4.9.0")
+            dependency("org.mongodb:mongodb-driver-reactivestreams:4.9.0")
+            dependency("org.neo4j.driver:neo4j-java-driver:5.5.0")
+            dependency("redis.clients:jedis:4.4.0-m2")
+
+            dependency("org.webjars:sockjs-client:1.5.1")
+            dependency("org.webjars:stomp-websocket:2.3.4")
+            dependency("org.webjars:bootstrap:5.2.3")
+            dependency("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
+            dependency("com.google.code.findbugs:jsr305:3.0.2")
+
+            dependency("io.grpc:grpc-netty:1.53.0")
+            dependency("io.grpc:grpc-protobuf:1.53.0")
+            dependency("io.grpc:grpc-stub:1.53.0")
         }
 
     }
+    configurations.configureEach {
+        resolutionStrategy {
+            failOnVersionConflict()
+
+            force("javax.servlet:servlet-api:2.4")
+            force("commons-logging:commons-logging:1.1.1")
+            force("commons-lang:commons-lang:2.5")
+            force("org.codehaus.jackson:jackson-core-asl:1.8.8")
+            force("org.codehaus.jackson:jackson-mapper-asl:1.8.3")
+            force("org.codehaus.jettison:jettison:1.1")
+            force("net.java.dev.jna:jna:5.8.0")
+            force("com.google.errorprone:error_prone_annotations:2.7.1")
+        }
+    }
 }
 
+task managedVersions {
+    doLast {
+        dependencyManagement.managedVersions.each {
+            println it
+        }
+    }
+}
 
 test {
     useJUnitPlatform()

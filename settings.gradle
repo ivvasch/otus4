@@ -12,4 +12,3 @@ include 'hw21-JPQL'
 include 'hw22-Cache'
 include 'hw31-Executors'
 include 'hw32-ConcurrentCollection'
-
