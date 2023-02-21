@@ -1,0 +1,48 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Пользователи</title>
+</head>
+<body>
+<style>
+    div.save{
+        text-align: center;
+    }
+    div.Data{
+        text-align: center;
+    }
+
+</style>
+<div class="save">
+<h4>Добавить клиента</h4>
+<form name="client" action="admin" method="post">
+        <td>Name:</td>
+            <td align="left"><input type="text" name="name" /></td>
+            <td>Address: </td>
+            <td align="left"><input type="text" name="address" /></td>
+            <td>Phone: </td>
+            <td align="left"><input type="text" name="phone" /></td>
+    <input type="submit" value="Save" />
+</form>
+<form name="clients" action="admin" method="get" >
+    <input type="hidden" name="allUsers" value="all"/>
+    <input type="submit" value="Get all clients" />
+</form>
+</div>
+<div  class="Data">
+<h4>Пользователи</h4>
+<#if clients??>
+<table align="center">
+    <tr>
+        <th>Id</th><th>Name</th> <th>Address</th><th>Phone</th>
+    </tr>
+    <#list clients as client>
+    <tr>
+        <td>${client.id}</td><td>${client.name}</td><td><#if client.address??> ${client.address} <#else> -- </#if></td>
+        <td><#if client.phones??>  <#list client.phones as phone> ${phone.phone} </#list> <#else> no phone </#if></td>
+    </tr>
+</#list>
+</table>
+</#if>
+</div>
+</body>
+</html>
