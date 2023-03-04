@@ -1,0 +1,47 @@
+﻿<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application</title>
+</head>
+<body>
+<h1>Welcome to information page</h1>
+<h2>
+    <span>Hello, Man</span>
+</h2>
+<h2 align="center">All clients here</h2>
+<div>
+    <table align="center">
+        <thead>
+        <tr>
+            <th th:width="200">Id</th><th th:width="200">Name</th><th th:width="200">Address</th><th th:width="200">Phone</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="client : ${clients}">
+        <tr th:each="phone : ${client.getPhones()}">
+            <th th:text="${client.id}"></th>
+            <th th:text="${client.name}"></th>
+            <th th:text="${client.getAddress().getAddress()}"></th>
+            <th th:text="${phone.phone}"></th>
+        </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <table>
+        <tr>
+            <th>
+                <form action="#" th:action="@{/}" method="get">
+                    <input type="submit" value="Back">
+                </form>
+            </th>
+            <th>
+                <form action="#" th:action="@{/api/client}" method="post">
+                    <input type="submit" value="Add new client">
+                </form>
+            </th>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

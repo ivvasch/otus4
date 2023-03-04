@@ -1,0 +1,33 @@
+﻿<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application</title>
+</head>
+<body>
+<h1>Welcome to information page</h1>
+<h2>
+    <span>Hello, Man</span>
+</h2>
+<div>
+    <h3>Add client</h3>
+
+    <form action ="#" th:action="@{/api/client}" th:object="${clientdto}" method="post" >
+        <p> Name:
+        <td><input id="name" name="name" placeholder="Enter name of client" type="text" th:text="*{name}"/></td>
+        </p>
+
+        <p> Address:
+        <td><input id="address" name="address" placeholder="Enter address of client" type="text" th:text="*{address}" /></td>
+        </p>
+
+        <p> Phone:
+        <td><input id="phone" name="phone" placeholder="Enter phone of client" type="text" th:text="*{phone}" /></td>
+        </p>
+
+        <input type="submit" value="Save Client">
+    </form>
+
+</div>
+</body>
+</html>

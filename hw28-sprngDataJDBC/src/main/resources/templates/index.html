@@ -1,0 +1,47 @@
+﻿<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application</title>
+</head>
+<body>
+<h1>Welcome to information page</h1>
+<h2>
+    <span>Hello, Guest</span>
+</h2>
+<h2>Customers</h2>
+<table>
+    <tr align="left">
+        <th><h4>Add randomUsers -----></h4></th>
+        <th>
+            <form action ="#" th:action="@{/api/random}" th:object="${client}" method="get" >
+                <input type="submit" value="Add random Users">
+            </form>
+        </th>
+    </tr>
+    <tr align="left">
+        <th><h4>Search customers -----></h4></th>
+    <th>
+            <form action ="#" th:action="@{/api/client/}" th:object="${client}" method="get" >
+                Id: <input name="id" placeholder="Enter id of client" type="text" th:field="*{id}" />
+                    <input type="submit" value="Find Client">
+            </form>
+        </th>
+        <th>
+            <form action ="#" th:action="@{/api/client/}" th:object="${client}" method="post" >
+                Name: <input name="name" placeholder="Enter name of client" type="text" th:field="*{name}" />
+                <input type="submit" value="Find Client by name">
+            </form>
+        </th>
+    </tr>
+    <tr align="left">
+        <th><h4>Get all clients from DB -----></h4></th>
+        <th>
+            <form action ="#" th:action="@{/api/client}" th:object="${client}" method="get" >
+                <input type="submit" value="Get all Clients">
+            </form>
+        </th>
+    </tr>
+</table>
+</body>
+</html>
