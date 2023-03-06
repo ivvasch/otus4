@@ -1,0 +1,64 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id "com.google.protobuf" version "0.8.16"
+}
+
+group 'ru.otus4'
+version 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
+    implementation 'io.grpc:grpc-netty-shaded:1.53.0'
+    implementation 'io.grpc:grpc-protobuf:1.53.0'
+    implementation "io.grpc:grpc-stub:1.53.0"
+    compileOnly 'org.apache.tomcat:tomcat-annotations-api:9.0.62'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    implementation 'org.slf4j:slf4j-simple:2.0.6'
+}
+
+def protoSrcDir = 'build/generated/source/proto/main/java'
+def grpcSrcDir = 'build/generated/source/proto/main/grpc'
+
+idea {
+    module {
+        sourceDirs += file(protoSrcDir)
+    }
+}
+
+sourceSets {
+    main {
+        proto {
+            srcDir protoSrcDir
+        }
+        java {
+            srcDir grpcSrcDir
+        }
+    }
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.19.1"
+    }
+    plugins {
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:1.52.1"
+        }
+    }
+    generateProtoTasks {
+        all()*.plugins {
+            grpc {}
+        }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
