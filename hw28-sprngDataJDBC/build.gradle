@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.otus4'
+version 'unspecified'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    dependencies {
+        implementation 'org.projectlombok:lombok:1.18.24'
+        implementation 'ch.qos.logback:logback-classic:1.4.4'
+        implementation 'org.flywaydb:flyway-core:9.7.0'
+        implementation 'org.postgresql:postgresql:42.5.1'
+        implementation 'com.google.code.findbugs:jsr305:3.0.2'
+        implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:3.0.2'
+        annotationProcessor 'org.projectlombok:lombok:1.18.24'
+        implementation 'org.springframework.boot:spring-boot-starter-web:3.0.2'
+        implementation 'org.springframework.boot:spring-boot-starter-data-jdbc:3.0.3'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
