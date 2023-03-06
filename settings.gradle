@@ -14,6 +14,6 @@ include 'hw25-DI'
 include 'hw31-Executors'
 include 'hw24-webServer'
 include 'hw25-DI'
-include 'hw32-ConcurrentCollection'
 include 'hw28-sprngDataJDBC'
-
+include 'hw32-ConcurrentCollection'
+include 'hw33-gRPC'
