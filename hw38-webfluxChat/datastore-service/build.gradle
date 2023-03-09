@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'ru.otus4'
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-webflux:3.0.4'
+    implementation 'io.r2dbc:r2dbc-postgresql:0.8.13.RELEASE'
+    implementation 'org.postgresql:postgresql:42.5.4'
+    implementation 'org.flywaydb:flyway-core:9.15.2'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc:3.0.4'
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc:3.0.4'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
+}
+
+test {
+    useJUnitPlatform()
+}
